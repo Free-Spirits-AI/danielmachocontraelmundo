@@ -19,10 +19,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          # IMPORTANT: do NOT set "cache: 'npm'" unless you have a lock file
 
-      - run: npm install
-
+      - run: npm install         # do NOT use "npm ci" without a lock file
       - run: npm run build
 
       - name: Upload artifact
